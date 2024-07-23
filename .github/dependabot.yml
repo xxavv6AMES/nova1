@@ -5,7 +5,16 @@
 
 version: 2
 updates:
-  - package-ecosystem: "" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "deps"
+    ignore:
+      - dependency-name: "electron"
+        versions: ["< 31.2.1"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: "daily"
